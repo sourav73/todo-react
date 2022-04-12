@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@mixin inputStyle {
+  @include box-shadow-light;
+  display: block;
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.2);
+}
+
+@mixin box-shadow-light {
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+// Header
+header {
+  @include box-shadow;
+  height: 8vh;
+  padding: 0 3rem;
+  color: #00e676;
+  display: flex;
+  align-items: center;
+  nav {
+    h1 {
+      font-size: 2rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Main
+main {
+  display: flex;
+  height: 92vh;
+}
+.create-todo {
+  width: 50%;
+  height: 100%;
+  background: #00e676;
+  color: rgba($color: #fff, $alpha: 0.9);
+  padding: 5rem 3rem 4rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  input {
+    @include inputStyle;
+  }
+
+  textarea {
+    @include inputStyle;
+    height: 10rem;
+    resize: none;
+  }
+  button {
+    display: block;
+    cursor: pointer;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 0.8rem 3rem;
+    margin: 0 auto;
+    transition: 0.3s ease-in-out;
+    font-size: 1rem;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    &:hover {
+      background: #fff;
+      color: #00e676;
+    }
+  }
+}
+
+.todos {
+  width: 50%;
+  height: 100%;
+  padding: 3rem;
+
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+
+    i {
+      margin-right: 0.5rem;
+      font-weight: 100;
+    }
+  }
+
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    select {
+      @include box-shadow;
+      border: none;
+      padding: 0.5rem 1rem;
+      outline: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+
+    button {
+      @include box-shadow;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      padding: 0.5rem 1rem;
+      background: #fff;
+      border-radius: 5px;
+      transition: 0.3s ease-in-out;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      -ms-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
+      &:hover {
+        background: #dd2c00;
+        color: #fff;
+      }
+    }
+  }
+
+  .todo-container {
+    padding: 1rem;
+    .todo {
+      @include box-shadow;
+      position: relative;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+
+      .action {
+        text-align: right;
+        margin-top: -10px;
+        margin-right: -16px;
+        i {
+          cursor: pointer;
+          margin: 0 0.5rem;
+        }
+
+        i.done {
+          color: #00e676;
+        }
+        i.pending {
+          color: #ef5350;
+        }
+        i.edit {
+          color: #ffd600;
+        }
+        i.delete {
+          color: #dd2c00;
+        }
+      }
+
+      .status {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 80%;
+        border-radius: 5px;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        &.done {
+          background: #00e676;
+        }
+        &.pending {
+          background: #dd2c00;
+        }
+      }
+
+      h4 {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+      p {
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .todo-info {
+        &.done > * {
+          text-decoration: line-through;
+        }
+
+        &.done .status {
+          background: #00e676;
+        }
+        &.pending .status {
+          background: #dd2c00;
+        }
+      }
+    }
+  }
+}
